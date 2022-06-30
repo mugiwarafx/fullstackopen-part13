@@ -7,5 +7,5 @@ CREATE TABLE blogs (
     date time
 );
 
-insert into notes (author, url, title, likes) values ('Monkey D.Luffy', 'https://luffy.jp', 'The Future Pirate King', 24);
-insert into notes (author, url, title, likes) values ('Sanji', 'https://sanji.jp', 'Best Cheff Ever!', 15);
+insert into blogs (author, url, title, likes) values ('Monkey D.Luffy', 'https://luffy.jp', 'The Future Pirate King', 24);
+insert into blogs (author, url, title, likes) values ('Sanji', 'https://sanji.jp', 'Best Cheff Ever!', 15);
