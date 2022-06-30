@@ -15,23 +15,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   },
 })
 
-const main = async () => {
-  try {
-    await sequelize.authenticate()
-    const blogs = await sequelize.query('SELECT * FROM blogs', {
-      type: QueryTypes.SELECT,
-    })
-    console.log(blogs)
-    sequelize.close()
-  } catch (error) {
-    console.error('Unable to connect to the database:', error)
-  }
-}
-
-main()
-
-/*
-
 class Blog extends Model {}
 Blog.init(
   {
@@ -61,13 +44,13 @@ Blog.init(
   },
   {
     sequelize,
-    // We also defined underscored: true, which means that table names 
-    // are derived from model names as plural snake case versions. 
-    // Practically this means that, if the name of the model, 
-    // as in our case is "Blog", then the name of the corresponding 
-    // table is its plural version written with a lower case initial letter, 
-    // i.e. blogs. If, on the other hand, the name of the model 
-    // would be "two-part", e.g. StudyGroup, then the name of the table would be study_groups. 
+    // We also defined underscored: true, which means that table names
+    // are derived from model names as plural snake case versions.
+    // Practically this means that, if the name of the model,
+    // as in our case is "Blog", then the name of the corresponding
+    // table is its plural version written with a lower case initial letter,
+    // i.e. blogs. If, on the other hand, the name of the model
+    // would be "two-part", e.g. StudyGroup, then the name of the table would be study_groups.
     // Sequelize automatically infers table names, but also allows explicitly defining them.
     underscored: true,
     timestamps: false,
@@ -77,6 +60,7 @@ Blog.init(
 
 app.get('/api/blogs', async (req, res) => {
   const blogs = await Blog.findAll()
+  console.log(JSON.stringify(blogs, null, 2))
   res.json(blogs)
 })
 
@@ -89,9 +73,16 @@ app.post('/api/blogs', async (req, res) => {
   }
 })
 
-const PORT = process.env.PORT || 3001
+app.delete('/api/blogs/:id', async (req, res) => {
+  const blog = await Blog.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+  return res.json(blog)
+})
+
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
-
-*/
