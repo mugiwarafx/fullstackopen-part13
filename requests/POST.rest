@@ -2,8 +2,8 @@ POST http://localhost:3000/api/blogs
 content-type: application/json
 
 {
-    "author": "Zoro",
-    "url": "https://zoro.jp",
-    "title": "Best Swordsman Ever!",
-    "likes": 19
+    "author": "Test",
+    "url": "https://test.jp",
+    "title": "Best Test Ever!",
+    "likes": "test"
 }
