@@ -76,4 +76,5 @@ router.put('/:id', blogFinder, async (req, res, next) => {
   }
 })
 
+// ex12 was already done
 module.exports = router
