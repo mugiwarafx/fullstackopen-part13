@@ -3,6 +3,13 @@ const logger = require('./logger')
 const errorHandler = (error, request, response, next) => {
   logger.error(error.message)
 
+  if (error.errors.message === 'Validation isEmail on username failed') {
+    console.log('Validation isEmail on username failed')
+    return response
+      .status(400)
+      .send({ error: 'Validation isEmail on username failed' })
+  }
+
   if (error.name === 'SequelizeDatabaseError') {
     console.log({
       PUT: 'PUT request must have this body {likes: integer}',
