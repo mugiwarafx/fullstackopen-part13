@@ -6,7 +6,6 @@ const { PORT } = require('./util/config')
 const { connectToDatabase } = require('./util/db')
 
 const { errorHandler } = require('./util/middleware')
-const logger = require('./util/logger')
 
 const app = express()
 
