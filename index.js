@@ -13,6 +13,7 @@ const app = express()
 const blogsRouter = require('./controllers/blogs')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const authorRouter = require('./controllers/authors')
 
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
@@ -29,6 +30,7 @@ app.use(cors())
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/authors', authorRouter)
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })

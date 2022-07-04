@@ -1,11 +1,11 @@
 POST http://localhost:3000/api/blogs
 content-type: application/json
-authorization: bearer TOKEN
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11Z2l3YXJhIiwiaWQiOjIsImlhdCI6MTY1NjkzMTA3OH0.8iQx0tzDK1d-5-VEjEvtKKmDFOP9j4-N9AHqkyVM89Q
 
 {
     "author": "mugiwara",
-    "url": "http://testbearer.com/blog",
-    "title": "testbearer",
-    "likes": 22
+    "url": "http://testbearer4.com/blog",
+    "title": "testbearer3",
+    "likes": 24
 }
 
