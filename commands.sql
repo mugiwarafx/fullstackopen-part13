@@ -7,7 +7,7 @@ CREATE TABLE blogs (
     date time
 );
 
-insert into blogs (author, url, title, likes) values ('Monkey D.Luffy', 'https://luffy.jp', 'The Future Pirate King', 24);
+insert into blogs (author, url, title, likes, year) values ('Monkey D.Luffy', 'https://luffy.jp', 'The Future Pirate King', 24, 1990);
 insert into blogs (author, url, title, likes) values ('Sanji', 'https://sanji.jp', 'Best Cheff Ever!', 15);
 
 insert into users (username, name, created_at, updated_at) values ('mugiwara', 'mugiwara', current_timestamp, current_timestamp );
