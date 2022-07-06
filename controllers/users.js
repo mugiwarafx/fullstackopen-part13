@@ -33,6 +33,11 @@ router.get('/:id', async (req, res) => {
       through: {
         attributes: [],
       },
+      include: {
+        model: Readinglist,
+        as: 'readinglists',
+        attributes: ['is_read', 'id'],
+      },
     },
   })
   if (user) {

@@ -27,7 +27,6 @@ Readinglist.init(
     underscored: true,
     timestamps: false,
     modelName: 'reading_lists',
-    as: 'readings',
   }
 )
 
