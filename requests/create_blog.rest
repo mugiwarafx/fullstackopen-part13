@@ -1,12 +1,12 @@
 POST http://localhost:3000/api/blogs
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJAZW1haWwuY29tIiwiaWQiOjEsImlhdCI6MTY1NzAzNDM2NH0.ErinGxyhL2-3SSNt-OUOJd3blP6ZVOMTG5dUvQt46Ro
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJAZW1haWwuY29tIiwiaWQiOjEsImlhdCI6MTY1NzEwNTM2N30.odFHCgzSUCHkZF80rNVRL3ZL7mgs4oJGTXLdyc-Mohs
 
 {
     "author": "userwithemail",
     "url": "http://testbearer4.com/blog",
     "title": "testbearer3",
     "likes": 24,
-    "year": 2030
+    "year": 2021
 }
 

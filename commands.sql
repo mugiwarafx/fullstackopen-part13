@@ -13,3 +13,5 @@ insert into blogs (author, url, title, likes) values ('Sanji', 'https://sanji.jp
 insert into users (username, name, created_at, updated_at) values ('mugiwara', 'mugiwara', current_timestamp, current_timestamp );
 insert into users (username, name, created_at, updated_at) values ('zoro', 'zoro', current_timestamp, current_timestamp );
 insert into users (username, name, created_at, updated_at) values ('sanji', 'sanji', current_timestamp, current_timestamp );
+
+insert into reading_list (user_id, blog_id) values (1, 1); 
