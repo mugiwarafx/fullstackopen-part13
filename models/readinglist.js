@@ -26,7 +26,8 @@ Readinglist.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: 'membership',
+    modelName: 'reading_lists',
+    as: 'readings',
   }
 )
 
