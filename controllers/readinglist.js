@@ -1,12 +1,10 @@
 const router = require('express').Router()
-const jwt = require('jsonwebtoken')
 
 const { Blog, User, Readinglist } = require('../models')
-const { SECRET } = require('../util/config')
 
 const { Op } = require('sequelize')
 
-const { tokenExtractor, blogFinder } = require('../util/middleware')
+const { tokenExtractor } = require('../util/middleware')
 
 router.post('/', tokenExtractor, async (req, res, next) => {
   try {

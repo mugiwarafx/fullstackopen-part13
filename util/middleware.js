@@ -7,7 +7,7 @@ const { Blog, User, Readinglist } = require('../models')
 
 const { Op } = require('sequelize')
 
-const tokenExtractor = (req, res, next) => {
+const tokenExtractor = async (req, res, next) => {
   const authorization = req.get('authorization')
   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
     try {
@@ -20,6 +20,14 @@ const tokenExtractor = (req, res, next) => {
     }
   } else {
     return res.status(401).json({ error: 'token missing' })
+  }
+
+  const user = await User.findByPk(req.decodedToken.id)
+  console.log(user.disabled)
+  if (user.disabled) {
+    return res.status(401).json({
+      error: 'token invalid or user disabled, log in or contact admin',
+    })
   }
 
   next()
