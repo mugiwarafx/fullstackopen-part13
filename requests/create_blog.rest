@@ -4,9 +4,9 @@ authorization: bearer TOKEN
 
 {
     "author": "userwithemail",
-    "url": "http://testbearer4.com/blog",
-    "title": "testbearer3",
-    "likes": 24,
+    "url": "http://testbearer422.com/blog222",
+    "title": "testbearer32",
+    "likes": 242,
     "year": 2021
 }
 

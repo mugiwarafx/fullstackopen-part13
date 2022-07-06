@@ -6,23 +6,7 @@ const { SECRET } = require('../util/config')
 
 const { Op } = require('sequelize')
 
-const tokenExtractor = (req, res, next) => {
-  const authorization = req.get('authorization')
-  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-    try {
-      console.log(authorization.substring(7))
-      console.log(SECRET)
-      req.decodedToken = jwt.verify(authorization.substring(7), SECRET)
-    } catch (error) {
-      console.log(error)
-      return res.status(401).json({ error: 'token invalid' })
-    }
-  } else {
-    return res.status(401).json({ error: 'token missing' })
-  }
-
-  next()
-}
+const { tokenExtractor, blogFinder } = require('../util/middleware')
 
 router.post('/', tokenExtractor, async (req, res, next) => {
   try {
@@ -36,6 +20,21 @@ router.post('/', tokenExtractor, async (req, res, next) => {
       userId: user.id,
     })
     return res.json(newReading)
+  } catch (error) {
+    return next(error)
+  }
+})
+
+router.put('/:id', tokenExtractor, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.decodedToken.id)
+    const readingList = await Readinglist.findByPk(req.params.id)
+    const blog = await Blog.findByPk(readingList.blogId)
+    if (blog.author === user.name) {
+      readingList.is_read = req.body.read
+      await readingList.save()
+      res.json(readingList)
+    }
   } catch (error) {
     return next(error)
   }
